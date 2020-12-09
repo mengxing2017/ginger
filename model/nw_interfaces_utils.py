@@ -22,7 +22,7 @@ import ethtool
 import os
 import time
 
-import wok.plugins.ginger.model.nw_cfginterfaces_utils
+from wok.plugins.ginger.model import nw_cfginterfaces_utils
 
 from wok.plugins.ginger.model.nw_cfginterfaces_utils import CfgInterfacesHelper
 from wok.plugins.ginger.model.nw_cfginterfaces_utils import ifcfg_filename_format, network_configpath

@@ -18,7 +18,7 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301 USA
 
 import re
-import wok.plugins.ginger.model.utils
+from wok.plugins.ginger.model import utils
 
 from wok.asynctask import AsyncTask
 from wok.exception import MissingParameter, NotFoundError, OperationFailed

@@ -23,8 +23,7 @@ import threading
 
 from distutils.spawn import find_executable
 
-
-import wok.plugins.ginger.model.rules
+from wok.plugins.ginger.model import  rules
 
 from wok.exception import OperationFailed
 from wok.utils import run_command
