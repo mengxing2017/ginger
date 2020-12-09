@@ -54,7 +54,7 @@ def get_group_obj_by_gid(gid):
 
 def get_group_gid(groupname):
     adm = libuser.admin()
-    if isinstance(groupname):
+    if isinstance(groupname, str):
         groupname = groupname.encode('utf-8')
     group = adm.lookupGroupByName(groupname)
     if group is None:
@@ -116,7 +116,7 @@ def delete_group(groupname):
 
 def get_users_from_group(groupname):
     adm = libuser.admin()
-    if isinstance(groupname):
+    if isinstance(groupname, str):
         groupname = groupname.encode('utf-8')
     group_obj = adm.lookupGroupById(
         int(get_group_gid(groupname))
@@ -137,7 +137,7 @@ def get_users(exclude_system_users=True):
 
 def get_user_obj(username):
     adm = libuser.admin()
-    if isinstance(username):
+    if isinstance(username, str):
         username = username.encode('utf-8')
     return adm.lookupUserByName(username)
 
@@ -286,7 +286,7 @@ def get_sudoers(admin_check=True):
         # indicates /etc/sudoers file has 3 users/groups
         for user in users:
             name = parser.get(user)
-            if isinstance(name):
+            if isinstance(name, str):
                 # augeas returns in unicode format
                 name = name.encode('utf-8')
             if admin_check:
@@ -425,16 +425,16 @@ class UsersModel(object):
         if not isinstance(params, dict):
             raise InvalidParameter('GINUSER0001E')
         keys = params.keys()
-        if isinstance(params['name']):
+        if isinstance(params['name'], str):
             params['name'] = params['name'].encode('utf-8')
         if not params['name'].strip():
             raise InvalidParameter('GINUSER0002E')
-        if isinstance(params['password']):
+        if isinstance(params['password'], str):
             params['password'] = params['password'].encode('utf-8')
         if not params['password'].strip():
             raise InvalidParameter('GINUSER0003E')
         if 'group' in keys:
-            if isinstance(params['group']):
+            if isinstance(params['group'], str):
                 params['group'] = params['group'].encode('utf-8')
             if not params['group'].strip():
                 # if group is empty string or only spaces then
@@ -445,7 +445,7 @@ class UsersModel(object):
             # create new group with username
             params['group'] = None
         if 'profile' in keys:
-            if isinstance(params['profile']):
+            if isinstance(params['profile'], str):
                 params['profile'] = params['profile'].encode('utf-8')
             if not params['profile'] in ['regularuser', 'virtuser', 'admin']:
                 raise InvalidParameter('GINUSER0005E')
@@ -471,7 +471,7 @@ class UsersModel(object):
             raise InvalidParameter('GINUSER0009E', {'user': user})
         adm = libuser.admin()
         kvmgrp = get_group_obj('kvm')
-        if isinstance(user):
+        if isinstance(user, str):
             user = user.encode('utf-8')
         kvmgrp.add('gr_mem', user)
         ret = adm.modifyGroup(kvmgrp)
@@ -499,7 +499,7 @@ class UsersModel(object):
 
 class UserModel(object):
     def delete(self, user):
-        if isinstance(user):
+        if isinstance(user, str):
             user = user.encode('utf-8')
         if not isinstance(user, str) or not user.strip():
             raise InvalidParameter('GINUSER0002E')
@@ -516,7 +516,7 @@ class UserModel(object):
             delete_group(groupname)
 
     def lookup(self, user):
-        if isinstance(user):
+        if isinstance(user, str):
             user = user.encode('utf-8')
         if not isinstance(user, str) or not user.strip():
             raise InvalidParameter('GINUSER0002E')
@@ -529,11 +529,11 @@ class UserModel(object):
         return user_info[0]
 
     def chpasswd(self, user, password):
-        if isinstance(user):
+        if isinstance(user, str):
             user = user.encode('utf-8')
         if not isinstance(user, str) or not user.strip():
             raise InvalidParameter('GINUSER0002E')
-        if isinstance(password):
+        if isinstance(password, str):
             password = password.encode('utf-8')
         if not isinstance(password, str) or not password.strip():
             raise InvalidParameter('GINUSER0003E')

@@ -184,7 +184,7 @@ def _create_dasd_part(dev, size):
 
 
 def _form_part_str(size):
-    if isinstance(size, unicode):
+    if isinstance(size, str):
         size = size.encode('utf-8')
     part_str = '\nn\n \n' + '+' + str(size) + 'M' + '\n' + 'w\n'
     return part_str

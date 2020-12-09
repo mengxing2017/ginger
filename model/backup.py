@@ -215,7 +215,7 @@ class ArchivesModel(object):
 
     def create(self, params):
         uuid_uuid4 = uuid.uuid4()
-        if isinstance(uuid_uuid4, unicode):
+        if isinstance(uuid_uuid4, str):
             uuid_uuid4 = uuid_uuid4.encode('utf-8')
         archive_id = str(uuid_uuid4)
         stamp = int(time.mktime(time.localtime()))
