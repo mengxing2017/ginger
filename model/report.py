@@ -22,7 +22,8 @@ import re
 
 from wok.config import get_log_download_path
 from wok.utils import run_command
-from wok.exception import InvalidParameter, OperationFailed
+from wok.exception import InvalidParameter
+from wok.exception import OperationFailed
 
 audit_summary_report = "%s/audit_summary_report.txt" % get_log_download_path()
 

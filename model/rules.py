@@ -22,7 +22,8 @@ import os
 import re
 import threading
 
-from wok.exception import MissingParameter, OperationFailed
+from wok.exception import MissingParameter
+from wok.exception import OperationFailed
 from wok.message import WokMessage
 from wok.utils import run_command, wok_log
 
@@ -52,7 +53,7 @@ def get_list_of_persisted_rules():
                 if each_rule[:2] in "-a,-w,-W":
                     persist_rules.append(each_rule.rstrip('\n'))
         return persist_rules + get_list_of_persisted_control_rules()
-    except Exception, e:
+    except Exception as e:
         raise OperationFailed('GINAUD0001E', {'error': e.message})
 
 
@@ -127,7 +128,7 @@ class RulesModel(object):
             raise
         except MissingParameter:
             raise
-        except Exception, e:
+        except Exception as e:
             raise OperationFailed('GINAUD0003E', {'error': e.message})
         finally:
             gingerAuditLock.release()
@@ -151,7 +152,7 @@ class RulesModel(object):
             return rule
         except MissingParameter:
             raise
-        except Exception, e:
+        except Exception as e:
             raise OperationFailed("GINAUD0003E", {'error': e.message})
 
     def construct_control_rule(self, params):
@@ -260,7 +261,7 @@ class RuleModel(object):
                 wok_log.info('Rule has been deleted succesfully ' + name)
             else:
                 self.unload(name)
-        except Exception, e:
+        except Exception as e:
             raise OperationFailed('GINAUD0006E', {'err': e.message})
         finally:
             gingerAuditLock.release()
@@ -367,7 +368,7 @@ class RuleModel(object):
             return audit_info
         except OperationFailed:
             raise
-        except Exception, e:
+        except Exception as e:
             raise OperationFailed("GINAUD0007E", {"error": e.message})
 
     def get_control_rule_info(self, audit_info, name):
@@ -395,7 +396,7 @@ class RuleModel(object):
                 name.split(" ")[0] + ": " + \
                 control_rules_dict[name.split(" ")[0]]
             audit_info.update(control_info)
-        except Exception, e:
+        except Exception as e:
             raise OperationFailed("GINAUD0007E", {"error": e.message})
 
     def get_system_rule_info(self, audit_info, name):
@@ -410,7 +411,7 @@ class RuleModel(object):
             systemcall_info['rule_info']['field'] = \
                 self.get_systemauditrule_field(name)
             audit_info.update(systemcall_info)
-        except Exception, e:
+        except Exception as e:
             raise OperationFailed("GINAUD0008E", {"error": e.message})
 
     def get_filesystem_rule_info(self, audit_info, name):
@@ -428,7 +429,7 @@ class RuleModel(object):
             audit_info.update(filesystemcall_info)
             filesystemcall_info['rule_info']['file_to_watch'] = \
                 self.get_fsauditrule_filetowatch(name)
-        except Exception, e:
+        except Exception as e:
             raise OperationFailed("GINAUD0009E", {"error": e.message})
 
     def loaded_or_persisted(self, audit_info, name):

@@ -17,8 +17,9 @@
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301 USA
 
-import fs_utils
-from wok.exception import NotFoundError, OperationFailed
+import wok.plugins.ginger.model.fs_utils
+from wok.exception import NotFoundError
+from wok.exception import OperationFailed
 from wok.utils import patch_find_nfs_target
 
 

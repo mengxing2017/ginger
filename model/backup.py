@@ -30,10 +30,13 @@ import cherrypy
 
 from wok.asynctask import AsyncTask
 from wok.config import PluginPaths
-from wok.exception import InvalidOperation, NotFoundError, OperationFailed
+from wok.exception import InvalidOperation
+from wok.exception import OperationFailed
+from wok.exception import NotFoundError
 from wok.exception import InvalidParameter
 from wok.model.tasks import TaskModel
-from wok.utils import run_command, wok_log
+from wok.utils import run_command
+from wok.utils import wok_log
 
 
 class BackupModel(object):

@@ -20,8 +20,8 @@
 from wok.control.base import Resource
 from wok.control.utils import UrlSubNode
 
-from cfginterfaces import Cfginterfaces
-from interfaces import Interfaces
+from wok.plugins.ginger.control.cfginterfaces import Cfginterfaces
+from wok.plugins.ginger.control.interfaces import Interfaces
 
 
 NETWORK_REQUESTS = {

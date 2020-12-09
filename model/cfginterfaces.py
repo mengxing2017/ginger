@@ -453,7 +453,7 @@ class CfginterfaceModel(object):
                     else:
                         wok_log.warn("Skipping the invalid route information" +
                                      encode_value(options))
-            except Exception, e:
+            except Exception as e:
                 raise OperationFailed("GINNET0030E", {'err': e.message})
             return cfg_map
 
@@ -476,7 +476,7 @@ class CfginterfaceModel(object):
             for elem in route_input:
                 try:
                     cfgroutes_info[elem.split('=')[0]] = elem.split('=')[1]
-                except Exception, e:
+                except Exception as e:
                     raise OperationFailed("GINNET0030E", {'err': e.message})
         route_list = []
         i = 0

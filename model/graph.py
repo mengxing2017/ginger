@@ -21,9 +21,12 @@
 import os
 import subprocess
 
-from mkgraph import create_graph, DOT_CMD
+from wok.plugins.ginger.model.mkgraph import create_graph
+from wok.plugins.ginger.model.mkgraph import DOT_CMD
 from wok.config import get_log_download_path
-from wok.exception import OperationFailed, InvalidParameter, InvalidOperation
+from wok.exception import OperationFailed
+from wok.exception import InvalidParameter
+from wok.exception import InvalidOperation
 
 audit_summary_report = \
     "%s/audit_summary_report.txt" % get_log_download_path()
@@ -60,5 +63,5 @@ class GraphsModel(object):
             return report
         except InvalidOperation:
             raise
-        except Exception, e:
+        except Exception as e:
             raise OperationFailed('GINAUD0028E', {'error': e.message})

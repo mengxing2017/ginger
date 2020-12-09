@@ -19,9 +19,12 @@
 
 import os
 
-from dasd_utils import get_dasd_devs
-from utils import get_disks_by_id_out, get_fc_path_elements
-from utils import get_lsblk_keypair_out, parse_ll_out, parse_lsblk_out
+from wok.plugins.ginger.model.dasd_utils import get_dasd_devs
+from wok.plugins.ginger.model.utils import get_disks_by_id_out
+from wok.plugins.ginger.model.utils import get_lsblk_keypair_out
+from wok.plugins.ginger.model.utils import get_fc_path_elements
+from wok.plugins.ginger.model.utils import parse_ll_out
+from wok.plugins.ginger.model.utils import parse_lsblk_out
 from wok.exception import OperationFailed
 
 

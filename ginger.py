@@ -21,7 +21,7 @@ import json
 import os
 
 from i18n import messages
-from model import GingerModel
+from wok.plugins.ginger.model.model import GingerModel
 from wok import config
 from wok.config import PluginConfig, PluginPaths
 from wok.plugins.ginger.control import sub_nodes

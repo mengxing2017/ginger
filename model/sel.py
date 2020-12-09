@@ -20,7 +20,7 @@
 from wok.utils import run_command
 from wok.exception import NotFoundError, OperationFailed
 
-from servers import get_config, decrypt
+from wok.plugins.ginger.model.servers import get_config, decrypt
 
 
 def get_sels(server):

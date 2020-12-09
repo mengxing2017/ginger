@@ -20,9 +20,9 @@
 
 import os
 
-import fs_utils
+import wok.plugins.ginger.model.fs_utils
 import time
-import utils
+import wok.plugins.ginger.model.utils
 
 from diskparts import PartitionModel
 from wok.asynctask import AsyncTask

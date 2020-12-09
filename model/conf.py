@@ -22,7 +22,7 @@ import re
 import sys
 import threading
 
-from services import ServiceModel
+from wok.plugins.ginger.model.services import ServiceModel
 from wok.exception import OperationFailed
 
 gingerAuditConfLock = threading.RLock()

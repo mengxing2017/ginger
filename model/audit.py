@@ -24,7 +24,7 @@ import threading
 from distutils.spawn import find_executable
 
 
-import rules
+import wok.plugins.ginger.model.rules
 
 from wok.exception import OperationFailed
 from wok.utils import run_command
@@ -82,7 +82,7 @@ class AuditModel(object):
                         shutil.copyfileobj(source, destination)
                     destination.close()
                 flag = 1
-            except Exception, e:
+            except Exception as e:
                 raise OperationFailed('GINAUD0019E',  {'Error': e.message})
         else:
             raise OperationFailed('GINAUD0021E')

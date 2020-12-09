@@ -22,11 +22,11 @@ import ethtool
 import os
 import time
 
-from nw_cfginterfaces_utils import IFACE_BOND
-from nw_cfginterfaces_utils import IFACE_VLAN
-from nw_interfaces_utils import add_config_to_mlx5_SRIOV_boot_script
-from nw_interfaces_utils import cfgInterfacesHelper
-from nw_interfaces_utils import InterfacesHelper
+from wok.plugins.ginger.model.nw_cfginterfaces_utils import IFACE_BOND
+from wok.plugins.ginger.model.nw_cfginterfaces_utils import IFACE_VLAN
+from wok.plugins.ginger.model.nw_interfaces_utils import add_config_to_mlx5_SRIOV_boot_script
+from wok.plugins.ginger.model.nw_interfaces_utils import cfgInterfacesHelper
+from wok.plugins.ginger.model.nw_interfaces_utils import InterfacesHelper
 from wok.asynctask import AsyncTask
 from wok.exception import InvalidOperation, InvalidParameter, NotFoundError
 from wok.exception import OperationFailed

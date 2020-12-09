@@ -20,8 +20,8 @@
 import os
 
 from wok.exception import OperationFailed
-from wok.utils import run_command, wok_log
-
+from wok.utils import run_command
+from wok.utils import wok_log
 
 def _parse_df_output(output):
     """

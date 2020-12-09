@@ -20,7 +20,8 @@
 from wok import config as wok_config
 from wok.basemodel import BaseModel
 from wok.objectstore import ObjectStore
-from wok.utils import get_all_model_instances, get_model_instances
+from wok.utils import get_all_model_instances
+from wok.utils import get_model_instances
 from wok.utils import upgrade_objectstore_schema
 
 

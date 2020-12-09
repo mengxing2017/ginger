@@ -17,7 +17,7 @@
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301 USA
 
-import fs_utils
+import wok.plugins.ginger.model.fs_utils
 
 from wok.exception import NotFoundError, OperationFailed
 from wok.exception import InvalidParameter, MissingParameter

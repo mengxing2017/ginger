@@ -19,7 +19,8 @@
 
 import threading
 
-from utils import del_lines_of_attribute, write_to_conf
+from wok.plugins.ginger.model.utils import del_lines_of_attribute
+from wok.plugins.ginger.model.utils import write_to_conf
 from wok.exception import OperationFailed
 
 

@@ -20,7 +20,8 @@
 import os
 import re
 
-from wok.exception import OperationFailed, NotFoundError
+from wok.exception import OperationFailed
+from wok.exception import NotFoundError
 from wok.utils import run_command
 
 SUBSCRIBER = re.compile("(Subscriber_[0-9]*: hostname=)(?P<hostname>.*)\

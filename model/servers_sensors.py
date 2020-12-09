@@ -22,7 +22,10 @@ import os
 from wok.exception import OperationFailed
 from wok.utils import run_command
 
-from servers import get_config, decrypt, SDR_LOCAL_CACHE_DIR, SDR_CACHE
+from wok.plugins.ginger.model.servers import get_config
+from wok.plugins.ginger.model.servers import decrypt
+from wok.plugins.ginger.model.servers import SDR_LOCAL_CACHE_DIR
+from wok.plugins.ginger.model.servers import SDR_CACHE
 
 
 ALLOWED_SENSOR_TYPES = [

@@ -30,7 +30,8 @@ that uses these module functions.
 
 import re
 
-from wok.exception import NotFoundError, OperationFailed
+from wok.exception import NotFoundError
+from wok.exception import OperationFailed
 from wok.utils import run_command
 
 

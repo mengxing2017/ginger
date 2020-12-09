@@ -29,7 +29,7 @@ from threading import Timer
 from wok.exception import OperationFailed
 from wok.stringutils import decode_value
 from wok.utils import run_command
-from nw_interfaces_utils import cfgInterfacesHelper
+from wok.plugins.ginger.model.nw_interfaces_utils import cfgInterfacesHelper
 
 gingerNetworkLock = threading.RLock()
 parser = augeas.Augeas("/")
@@ -82,7 +82,7 @@ class NetworkModel(object):
                         new_data.append(NAMESERVER + ' ' + server)
                 f.write(''.join('%s\n' % line for line in new_data))
                 f.close()
-        except Exception, e:
+        except Exception as e:
             raise OperationFailed('GINNET0002E', {'reason': e.message})
 
     def _get_default_route_entry(self):
@@ -139,7 +139,7 @@ class NetworkModel(object):
                         if iface_from_match == decode_value(iface):
                             parser.set(list_iface + "/gateway", gateway)
                             parser.save()
-                except Exception, e:
+                except Exception as e:
                     raise OperationFailed("GINNET0074E", {'error': e})
                 finally:
                     gingerNetworkLock.release()

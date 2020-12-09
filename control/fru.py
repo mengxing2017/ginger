@@ -24,7 +24,7 @@ from wok.control.utils import model_fn
 class Frus(Collection):
     def __init__(self, model, server):
         super(Frus, self).__init__(model)
-        print "Frus __init"
+        print('Frus __init')
         self.server = server
         self.resource_args = [self.server, ]
         self.model_args = [self.server, ]
@@ -45,9 +45,9 @@ class Frus(Collection):
             res_list = []
             for ident in idents:
                 # internal text, get_list changes ident to unicode for sorted
-                print self.resource_args
+                print(self.resource_args)
                 args = self.resource_args + [ident]
-                print args
+                print(args)
                 res = self.resource(self.model, *args)
                 res.info = ident
                 res_list.append(res)

@@ -21,9 +21,9 @@
 from wok.control.base import Collection, Resource
 from wok.control.utils import UrlSubNode
 
-from fru import Frus
-from sel import Sels
-from servers_sensors import ServerSensors
+from wok.plugins.ginger.control.fru import Frus
+from wok.plugins.ginger.control.sel import Sels
+from wok.plugins.ginger.control.servers_sensors import ServerSensors
 
 SERVERS_REQUESTS = {
     'POST': {'default': "GINSE0001L"}

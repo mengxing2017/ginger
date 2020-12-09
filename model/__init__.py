@@ -18,6 +18,6 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301 USA
 
 
-from model import GingerModel
+from wok.plugins.ginger.model.model import GingerModel
 
 __all__ = [GingerModel]

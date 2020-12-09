@@ -17,11 +17,12 @@
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301 USA
 
-import utils
+import wok.plugins.ginger.model.utils
 
 from wok.asynctask import AsyncTask
-from wok.exception import MissingParameter, \
-    NotFoundError, OperationFailed
+from wok.exception import MissingParameter
+from wok.exception import NotFoundError
+from wok.exception import OperationFailed
 from wok.model.tasks import TaskModel
 
 
@@ -58,7 +59,7 @@ class LogicalVolumesModel(object):
             cb('create lv')
             utils._create_lv(vgname, size)
 
-        except (OperationFailed), e:
+        except (OperationFailed) as e:
             raise OperationFailed('GINLV00003E',
                                   {'err': e.message})
 

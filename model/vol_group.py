@@ -17,13 +17,12 @@
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301 USA
 
-import utils
+import wok.plugins.ginger.model.utils
 
 from wok.asynctask import AsyncTask
 from wok.exception import InvalidOperation, MissingParameter, NotFoundError
 from wok.exception import OperationFailed
 from wok.model.tasks import TaskModel
-
 
 class VolumeGroupsModel(object):
     """
@@ -60,7 +59,7 @@ class VolumeGroupsModel(object):
             cb('create vg')
             utils._create_vg(vgname, pv_paths)
 
-        except (OperationFailed), e:
+        except (OperationFailed) as e:
             raise OperationFailed('GINVG00001E',
                                   {'name': vgname,
                                    'err': e.message})

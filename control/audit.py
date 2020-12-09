@@ -20,12 +20,12 @@
 from wok.control.base import Resource
 from wok.control.utils import UrlSubNode
 
-from conf import Conf
-from graph import Graphs
-from log import Logs
-from report import Reports
-from rules import Rules
-from syscall import Syscall
+from wok.plugins.ginger.control.conf import Conf
+from wok.plugins.ginger.control.graph import Graphs
+from wok.plugins.ginger.control.log import Logs
+from wok.plugins.ginger.control.report import Reports
+from wok.plugins.ginger.control.rules import Rules
+from wok.plugins.ginger.control.syscall import Syscall
 
 AUDIT_REQUESTS = {
     'POST': {

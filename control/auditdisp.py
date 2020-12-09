@@ -20,7 +20,7 @@
 from wok.control.base import Resource
 from wok.control.utils import UrlSubNode
 
-from audisp_plugins import Plugins
+from wok.plugins.ginger.control.audisp_plugins import Plugins
 
 AUDISP_REQUESTS = {
     'PUT': {

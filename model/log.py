@@ -22,7 +22,8 @@ import datetime
 import re
 
 from wok.utils import run_command
-from wok.exception import InvalidParameter, OperationFailed
+from wok.exception import InvalidParameter
+from wok.exception import OperationFailed
 
 audit_configpath = 'etc/audit/'
 auditlog_file = '/var/log/audit/audit.log'

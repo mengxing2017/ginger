@@ -19,8 +19,8 @@
 
 import os
 
-from wok.utils import get_model_instances, listPathModules
-
+from wok.utils import get_model_instances
+from wok.utils import list_path_modules
 
 class CapabilitiesModel(object):
     def __init__(self):
@@ -28,7 +28,7 @@ class CapabilitiesModel(object):
 
         pckg_namespace = __name__.rsplit('.', 1)[0]
 
-        for mod_name in listPathModules(os.path.dirname(__file__)):
+        for mod_name in list_path_modules(os.path.dirname(__file__)):
             if mod_name.startswith("_") or mod_name == 'capabilities':
                 continue
 
