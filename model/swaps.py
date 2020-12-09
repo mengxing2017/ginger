@@ -24,7 +24,7 @@ import wok.plugins.ginger.model.fs_utils
 import time
 import wok.plugins.ginger.model.utils
 
-from diskparts import PartitionModel
+from wok.plugins.ginger.model.diskparts import PartitionModel
 from wok.asynctask import AsyncTask
 from wok.exception import InvalidParameter, NotFoundError, OperationFailed
 from wok.model.tasks import TaskModel

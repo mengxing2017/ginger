@@ -22,10 +22,10 @@ import ethtool
 import os
 import time
 
-import nw_cfginterfaces_utils
+import wok.plugins.ginger.model.nw_cfginterfaces_utils
 
-from nw_cfginterfaces_utils import CfgInterfacesHelper
-from nw_cfginterfaces_utils import ifcfg_filename_format, network_configpath
+from wok.plugins.ginger.model.nw_cfginterfaces_utils import CfgInterfacesHelper
+from wok.plugins.ginger.model.nw_cfginterfaces_utils import ifcfg_filename_format, network_configpath
 from wok.exception import OperationFailed
 from wok.stringutils import encode_value
 from wok.utils import run_command, wok_log
@@ -82,7 +82,7 @@ echo %(num_vf)s > /sys/class/net/%(iface)s/device/sriov_numvfs\n"""
     try:
         with open(MLX5_SRIOV_BOOT_FILE, 'w+') as f:
             f.write(template)
-        os.chmod(MLX5_SRIOV_BOOT_FILE, 0744)
+        os.chmod(MLX5_SRIOV_BOOT_FILE, 0o744)
     except Exception as e:
         raise OperationFailed("GINNET0086E", {'err': e.message})
 

@@ -217,7 +217,7 @@ class CfgInterfacesHelper(object):
                         else:
                             wok_log.warn("no ifcfg file found,skipping" +
                                          cfg_device)
-                    except Exception, e:
+                    except Exception as e:
                         wok_log.warn("no device name found,skipping",
                                      e.message)
         finally:
@@ -384,7 +384,7 @@ class CfgInterfacesHelper(object):
                 labelVal = parser.get(single)
                 labelVal = self.trim_quotes(labelVal)
                 cfgmap[parser.label(single)] = labelVal
-        except Exception, e:
+        except Exception as e:
             # typical error message e='Error during match procedure!',
             # u'etc/sysconfig/network-scripts/ifcfg-virbr0
             wok_log.error('Augeas parser throw run time exception', e.message)
@@ -461,7 +461,7 @@ class CfgInterfacesHelper(object):
                 if ip.version == 4:
                     return
             raise Exception("Not an ipv4 address")
-        except Exception, e:
+        except Exception as e:
             raise InvalidParameter('GINNET0018E', {'ip': ip,
                                                    'error': e.message})
 
@@ -476,7 +476,7 @@ class CfgInterfacesHelper(object):
             gingerNetworkLock.acquire()
             parser.remove(decode_value(filename + os.sep + token))
             parser.save()
-        except Exception, e:
+        except Exception as e:
             wok_log.error("Augeas parser throw run time exception ",
                           encode_value(e.message))
             raise OperationFailed("GINNET0058E", {'error': e.message})
@@ -515,7 +515,7 @@ class CfgInterfacesHelper(object):
             if ip.version == 6:
                 return
             raise Exception("Not an ipv6 address")
-        except Exception, e:
+        except Exception as e:
             raise InvalidParameter('GINNET0028E', {'ip': ip,
                                                    'error': e.message})
 
@@ -542,7 +542,7 @@ class CfgInterfacesHelper(object):
                     else:
                         raise InvalidParameter('GINNET0065E', {
                             'PREFIX': ipaddrinfo[PREFIX]})
-            except Exception, e:
+            except Exception as e:
                 raise InvalidParameter(
                     'GINNET0019E', {'PREFIX': ipaddrinfo[PREFIX],
                                     'error': e.message})
@@ -559,7 +559,7 @@ class CfgInterfacesHelper(object):
         try:
             ip = IPAddress(ip)
             return ip.netmask_bits()
-        except Exception, e:
+        except Exception as e:
             raise InvalidParameter('GINNET0019E', {'PREFIX': ip,
                                                    'error': e.message})
 
@@ -785,7 +785,7 @@ class CfgInterfacesHelper(object):
     def convert_to_int_ifvalid(self, value):
         try:
             int_value = int(value)
-        except ValueError, e:
+        except ValueError as e:
             raise InvalidParameter("GINNET0066E", {'error': e.message})
         return int_value
 
@@ -1174,7 +1174,7 @@ class CfgInterfacesHelper(object):
                         os.remove(route_filepath)
                 self.write_attributes_to_cfg(
                     self.get_iface_identifier(cfgmap), cfgmap)
-            except Exception, e:
+            except Exception as e:
                 wok_log.error('Exception occured while updating the'
                               ' cfg information' + encode_value(e.message))
                 if os.path.isfile(backupfile):
@@ -1191,7 +1191,7 @@ class CfgInterfacesHelper(object):
         wok_log.info('Deleting persist file ' + ifcfg_file)
         try:
             os.remove(ifcfg_file)
-        except OSError, e:
+        except OSError as e:
             raise OperationFailed("GINNET0049E", {'error': e.message})
 
     def remove_vlan_persistent(self, name):

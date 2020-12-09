@@ -20,7 +20,7 @@
 import json
 import os
 
-from i18n import messages
+from wok.plugins.ginger.i18n import messages
 from wok.plugins.ginger.model.model import GingerModel
 from wok import config
 from wok.config import PluginConfig, PluginPaths
