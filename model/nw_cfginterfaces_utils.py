@@ -171,8 +171,8 @@ class CfgInterfacesHelper(object):
         nics = self.filter_nics(nics)
         nics_with_cfgfiles = (self.get_bond_vlan_interfaces())
         # To ensure that comparision are done in same type.
-        return set(map(encode_value, nics) +
-                   map(encode_value, nics_with_cfgfiles))
+        return set(map(encode_value, nics) .join(
+                   map(encode_value, nics_with_cfgfiles)))
 
     def filter_nics(self, interfaces):
         """
